@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sistema de metas financeiras — acompanhe seu progresso" />
+    <title>Metas Financeiras</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="container">
+
+      <!-- Toggle de tema -->
+      <div class="theme-toggle-wrapper">
+        <button id="btnTema" class="btn-tema" type="button" aria-label="Alternar tema">
+          <span class="btn-tema-icon" id="temaIcone">🌙</span>
+          <span id="temaLabel">Tema claro</span>
+        </button>
+      </div>
+
+      <!-- Header -->
+      <header class="page-header">
+        <div class="cotacao-pill">
+          <div class="cotacao-pill-dot"></div>
+          ao vivo · USD/BRL
+          <span id="cotacaoValor">carregando...</span>
+        </div>
+        <h1 class="page-title">
+          Suas metas,<br>
+          <em>seu ritmo.</em>
+        </h1>
+        <p class="page-subtitle">Cadastre um objetivo, informe quanto guarda por mês e acompanhe o progresso em tempo real.</p>
+      </header>
+
+      <div class="divisor"></div>
+
+      <!-- Formulário -->
+      <section class="form-card" aria-label="Cadastrar nova meta">
+
+        <div class="form-card-header">
+          <span class="form-card-numero">01</span>
+          <h2 class="form-card-titulo">Nova meta</h2>
+        </div>
+
+        <div class="form-grid">
+
+          <div class="field field--wide">
+            <label for="nomeMeta" class="field-label">Nome da meta</label>
+            <input
+              type="text"
+              id="nomeMeta"
+              class="field-input"
+              placeholder="Ex: Viagem para Europa"
+              maxlength="60"
+            />
+          </div>
+
+          <div class="field">
+            <label for="valorMeta" class="field-label">Valor total</label>
+            <div class="input-group">
+              <span class="input-affix">R$</span>
+              <input type="number" id="valorMeta" class="field-input" placeholder="8.000,00" min="1" step="1" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="valorGuardado" class="field-label">Já guardei</label>
+            <div class="input-group">
+              <span class="input-affix">R$</span>
+              <input type="number" id="valorGuardado" class="field-input" placeholder="2.400,00" min="0" step="1" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="aporteMensal" class="field-label">Guardo por mês</label>
+            <div class="input-group">
+              <span class="input-affix">R$</span>
+              <input type="number" id="aporteMensal" class="field-input" placeholder="600,00" min="1" step="1" />
+            </div>
+          </div>
+
+        </div>
+
+        <div id="erroMsg" class="erro-msg" aria-live="polite"></div>
+
+        <button id="btnCadastrar" class="btn-cadastrar" type="button">
+          <span class="btn-icon">+</span>
+          Cadastrar meta
+        </button>
+
+      </section>
+
+      <div class="divisor"></div>
+
+      <!-- Lista de metas -->
+      <section class="metas-section" aria-label="Suas metas">
+
+        <div class="metas-header">
+          <div class="form-card-header" style="margin-bottom:0">
+            <span class="form-card-numero">02</span>
+            <h2 class="form-card-titulo">Suas metas</h2>
+          </div>
+          <button id="btnLimparTudo" class="btn-limpar-tudo" type="button">Limpar tudo</button>
+        </div>
+
+        <div id="metasLista" class="metas-lista"></div>
+
+        <p id="metasVazio" class="metas-vazio">
+          <span class="vazio-icon">◎</span>
+          Nenhuma meta cadastrada ainda.<br>Comece pela seção acima.
+        </p>
+
+      </section>
+
+    </main>
+
+    <script type="module" src="JS/main.js"></script>
+  </body>
+</html>
